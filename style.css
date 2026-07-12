@@ -825,6 +825,19 @@ footer span {
         margin: 0 auto 2.8rem;
     }
     .profile-3d-container { width: 280px; height: 340px; }
+    .project-card-side {
+        flex-direction: column;
+    }
+    .project-image-side {
+        width: 100%;
+        min-width: 100%;
+        height: 250px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    .project-card-side .project-info {
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
