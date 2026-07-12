@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Abdoulie Taal - Software Developer & Engineer">
+    <title>Abdoulie Taal | Software Developer</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Full Screen Loader -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar"></div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#home" class="logo">AT.</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#languages">Skills & Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Available for Work
+                </div>
+                <h1>ABDOULIE TAAL</h1>
+                <p class="subtitle">Software Developer &amp; Engineer · Full Stack · Mobile &amp; Web Apps · <span style="white-space: nowrap;">E-Commerce</span> · Data Analytics · Tableau Developer</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000">
+                <div class="profile-3d-container">
+                    <img src="images/profile.jpg" alt="Abdoulie Taal Profile" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About & Education -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="zoom-in" data-aos-duration="700">ABOUT ME</h2>
+            <div class="education-block" data-aos="fade-up" data-aos-delay="150" style="max-width: 950px;">
+                <p style="text-align: justify; line-height: 1.95; color: var(--muted); margin-bottom: 1.2rem;">Computer Information Systems graduate from Near East University with hands on experience in software development, mobile application development, web development, and data analytics. Proficient in Python, PHP, Flutter, Firebase, HTML, CSS, JavaScript, Tableau, and Figma. Proven ability to deliver user focused digital solutions from academic advisory systems and mobile restaurant apps to e commerce platforms and interactive data dashboards. Passionate about building clean, functional, and scalable applications.</p>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 4rem;" data-aos="zoom-in" data-aos-duration="700">EXPERIENCE</h2>
+            <div class="education-block" data-aos="fade-left" data-aos-delay="150">
+                <h3>Frontend Developer Intern &nbsp;|&nbsp; Bros Inc &nbsp;|&nbsp; Summer 2025</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--muted);">HTML, CSS, JavaScript, Base44</p>
+                <ul style="color: var(--muted); line-height: 1.9;">
+                    <li>Built StudyAI, a web app that lets students upload and scan multiple study documents together for AI powered analysis, cutting down time spent manually cross referencing notes.</li>
+                    <li>Developed the frontend using HTML, CSS, and JavaScript on the Base44 platform, including the document upload and selection interface.</li>
+                    <li>Implemented features that let the AI summarise uploaded materials and generate practice questions, giving students a faster way to test their understanding before exams.</li>
+                </ul>
+                <div class="studyai-gallery-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="studyai-gallery">
+                        <img src="images/studyai_1.png" alt="StudyAI Dashboard" class="studyai-img">
+                        <img src="images/studyai_2.png" alt="StudyAI Empty State" class="studyai-img">
+                        <img src="images/studyai_3.png" alt="StudyAI Upload" class="studyai-img">
+                        <img src="images/studyai_4.png" alt="StudyAI How it works" class="studyai-img">
+                        <img src="images/studyai_5.png" alt="StudyAI Create Course" class="studyai-img">
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 4rem;" data-aos="zoom-in" data-aos-duration="700">EDUCATION</h2>
+            <div class="education-block" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" data-aos="fade-right" data-aos-delay="150">
+                <h3>BSc in Computer Information Systems &nbsp;|&nbsp; Near East University</h3>
+                <ul>
+                    <li>Graduation Project: Expense IQ Analyzer, mobile app for expense and budget planning <a href="#projects" style="color: var(--p); text-decoration: underline;">(see Projects section)</a></li>
+                    <li>Courses of greatest interest: Web Programming, Software Engineering, Mobile App Development, E-Commerce Systems, System Analysis &amp; Design, Introduction to AI, and Decision Support Systems</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="zoom-in" data-aos-duration="700">SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-card" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.2" data-aos="zoom-in-up" data-aos-delay="100">
+                    <i class="fas fa-code"></i>
+                    <h3>Full-Stack Web Development</h3>
+                    <p>I build responsive, production-grade web applications end to end — interface, application logic, and backend — using HTML, CSS, JavaScript, React, and PHP. That means thinking about the database schema and the server-side logic at the same time as the interface, so the two don't fight each other later. I care about pages that load fast, forms that fail gracefully, and architecture that doesn't need to be rebuilt the first time real traffic hits it.</p>
+                </div>
+                <div class="service-card" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.2" data-aos="zoom-in-up" data-aos-delay="200">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Application Development</h3>
+                    <p>I design and build cross-platform mobile applications in Flutter, backed by Firebase for authentication, real-time data synchronization, and cloud storage. The goal isn't just feature parity across iOS and Android — it's an interface that respects how people actually hold and use their phones: fast interactions, minimal friction, and state that persists correctly when the app is backgrounded, killed, or reopened on a bad connection.</p>
+                </div>
+                <div class="service-card" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.2" data-aos="zoom-in-up" data-aos-delay="300">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Analytics &amp; Dashboard Design</h3>
+                    <p>I take raw, inconsistent datasets and turn them into dashboards that answer one specific business question well, rather than displaying every metric available. That starts with data cleaning — the unglamorous but decisive part of the work — and ends with a Tableau dashboard built around how a decision-maker actually reads a chart under time pressure.</p>
+                </div>
+                <div class="service-card" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.2" data-aos="zoom-in-up" data-aos-delay="400">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h3>UI/UX Prototyping</h3>
+                    <p>I build wireframes and interactive prototypes in Figma before a single line of production code is written, so design decisions get tested cheaply — on a click-through prototype — instead of expensively, after the interface is already built.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title" data-aos="zoom-in" data-aos-duration="700">TECHNICAL SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-category" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3" data-aos="flip-left" data-aos-delay="100">
+                    <h3>Core Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React JS</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Weebly</span>
+                    </div>
+                </div>
+                <div class="skill-category" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3" data-aos="flip-left" data-aos-delay="200">
+                    <h3>Mobile Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Firebase Authentication</span>
+                        <span class="skill-tag">Realtime Database</span>
+                        <span class="skill-tag">Cloud Firestore</span>
+                    </div>
+                </div>
+                <div class="skill-category" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3" data-aos="flip-left" data-aos-delay="300">
+                    <h3>Web Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React JS</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">Frontend UI/UX</span>
+                        <span class="skill-tag">PHP Backend</span>
+                        <span class="skill-tag">No-Code (Weebly)</span>
+                    </div>
+                </div>
+                <div class="skill-category" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3" data-aos="flip-right" data-aos-delay="400">
+                    <h3>Data & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Data Cleaning</span>
+                        <span class="skill-tag">Dashboard Design</span>
+                        <span class="skill-tag">Visual Reporting</span>
+                    </div>
+                </div>
+                <div class="skill-category" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3" data-aos="flip-right" data-aos-delay="500">
+                    <h3>Design Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">UI/UX Prototyping</span>
+                        <span class="skill-tag">Wireframing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="zoom-in" data-aos-duration="700">PROJECTS</h2>
+            <div class="projects-grid">
+
+                <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="50" data-aos-duration="900">
+                    <div class="project-image-side" id="proj-academic"></div>
+                    <div class="project-info">
+                        <h3>Academic Guidance System</h3>
+                        <div class="project-meta">
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2026</span>
+                            <span class="tools"><i class="fas fa-tools"></i> Python</span>
+                        </div>
+                        <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+                            <li>Built an academic advisor expert system for students at Near East University, using Python with logic for academic guidance and decision support.</li>
+                            <li>Implemented user input handling and built a functional software solution for student use.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card project-card-side" data-aos="fade-left" data-aos-delay="80" data-aos-duration="900">
+                    <div class="project-image-side" id="proj-campus"></div>
+                    <div class="project-info">
+                        <h3>Campus Market Website</h3>
+                        <div class="project-meta">
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2026 – Present &nbsp;|&nbsp; Team Project &nbsp;|&nbsp; Frontend</span>
+                            <span class="tools"><i class="fas fa-tools"></i> PHP</span>
+                        </div>
+                        <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+                            <li>Built a dynamic campus marketplace website using PHP and frontend technologies, developed collaboratively as part of a team.</li>
+                            <li>Focused on intuitive user interface design and clean website structure, tailored for university students.</li>
+                            <li><a href="https://www.campusmarketplace.site/" target="_blank" style="color: var(--i); text-decoration: underline;">View Live Project</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="80" data-aos-duration="900">
+                    <div class="project-image-side" id="proj-restaurant"></div>
+                    <div class="project-info">
+                        <h3>DashDish Mobile Restaurant App</h3>
+                        <div class="project-meta">
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2025 &nbsp;|&nbsp; Team Project &nbsp;|&nbsp; Frontend & Backend</span>
+                            <span class="tools"><i class="fas fa-tools"></i> Flutter, Firebase</span>
+                        </div>
+                        <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+                            <li>Developed a full-featured mobile restaurant application, DashDish, as part of a team using Flutter for cross-platform support.</li>
+                            <li>Integrated Firebase for backend services including authentication, data storage, and real-time updates.</li>
+                            <li>Designed a user-friendly mobile interface with smooth navigation and real-time data handling.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card project-card-side" data-aos="fade-left" data-aos-delay="80" data-aos-duration="900">
+                    <div class="project-image-side" id="proj-expenseiq"></div>
+                    <div class="project-info">
+                        <h3>Expense IQ Analyzer</h3>
+                        <div class="project-meta">
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2025 – 2026 &nbsp;|&nbsp; Team Project &nbsp;|&nbsp; UI/UX Designer</span>
+                            <span class="tools"><i class="fas fa-tools"></i> Flutter, Firebase</span>
+                        </div>
+                        <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+                            <li>Built a mobile app, as part of a team, that lets users track and analyze receipts and expenses for budget planning. Led the UI/UX design.</li>
+                            <li>Used Flutter for the cross-platform mobile interface and Firebase for backend data storage and real-time syncing.</li>
+                            <li>Served as the graduation project, combining practical financial tracking features with a clean, user-friendly design.</li>
+                            <li><a href="https://expenseiqapp.netlify.app/" target="_blank" style="color: var(--i); text-decoration: underline;">View Live Project</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="80" data-aos-duration="900">
+                    <div class="project-image-side" id="proj-weebly"></div>
+                    <div class="project-info">
+                        <h3>Fashion E-Commerce Website</h3>
+                        <div class="project-meta">
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2024</span>
+                            <span class="tools"><i class="fas fa-tools"></i> Weebly</span>
+                        </div>
+                        <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+                            <li>Designed and launched an online fashion store using the Weebly platform.</li>
+                            <li>Created structured product pages with a focus on visual design and seamless user experience in the fashion niche.</li>
+                            <li><a href="https://safa-karaby-taal.weeblysite.com/" target="_blank" style="color: var(--i); text-decoration: underline;">View Live Project</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card project-card-side" data-aos="fade-left" data-aos-delay="80" data-aos-duration="900">
+                    <div class="project-image-side" id="proj-dashboard"></div>
+                    <div class="project-info">
+                        <h3>AI Student Life Pakistan 2026 - EDA</h3>
+                        <div class="project-meta">
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2026 &nbsp;|&nbsp; Researcher</span>
+                            <span class="tools"><i class="fas fa-tools"></i> Python, Tableau</span>
+                        </div>
+                        <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+                            <li>Conducted exploratory data analysis (EDA) using Python to investigate AI adoption trends among Pakistani students.</li>
+                            <li>Processed and cleaned raw datasets by handling missing values, removing duplicates, and encoding variables.</li>
+                            <li>Built interactive Tableau dashboards to visualize key insights regarding AI usage, academic performance, and student satisfaction.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="80" data-aos-duration="900">
+                    <div class="project-image-side" id="proj-webdev"></div>
+                    <div class="project-info">
+                        <h3>Personal Portfolio Website</h3>
+                        <div class="project-meta">
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2023 – Present</span>
+                            <span class="tools"><i class="fas fa-tools"></i> HTML, CSS, JS</span>
+                        </div>
+                        <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
+                            <li>Designed and built this responsive personal portfolio website to showcase my work.</li>
+                            <li>Applied modern web standards and best practices with a strong emphasis on UI/UX and frontend performance.</li>
+                            <li>Continuously updated and refined since 2023.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Info (Languages, Soft Skills, Hobbies) -->
+    <section id="languages" class="about">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; width: 100%;">
+                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="100">
+                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">LANGUAGES</h2>
+                    <p style="font-size: 1.05rem;"><strong>English:</strong> Fluent<br><strong>Wolof:</strong> Native</p>
+                </div>
+                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="200">
+                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">SOFT SKILLS</h2>
+                    <p style="font-size: 1.05rem;">Problem Solving<br>Team Collaboration<br>Communication<br>Time Management<br>Adaptability</p>
+                </div>
+                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="250">
+                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">HARD SKILLS</h2>
+                    <p style="font-size: 1.05rem;">HTML &amp; CSS<br>JavaScript<br>PHP<br>Python<br>MySQL (Database Management)</p>
+                </div>
+                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="300">
+                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">HOBBIES</h2>
+                    <p style="font-size: 1.05rem;">Building Personal Coding Projects<br>Learning New Technologies<br>Playing Video Games<br>Reading Technology Articles<br>Watching Movies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="zoom-in" data-aos-duration="700">CONTACT INFORMATION</h2>
+            <div class="contact-cards">
+                <a href="mailto:taalabdoulie31@gmail.com" class="contact-card" data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.5" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>taalabdoulie31@gmail.com</p>
+                </a>
+                <a href="https://www.linkedin.com/in/abdoulie-taal-bb42b9286/" class="contact-card" target="_blank" data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.5" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Abdoulie Taal</p>
+                </a>
+                <a href="https://www.instagram.com/papalie_/" class="contact-card" target="_blank" data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.5" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>@papalie_</p>
+                </a>
+                <a href="https://github.com/taalabdoulie31-stack" class="contact-card" target="_blank" data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.5" data-aos="flip-left" data-aos-delay="400">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>taalabdoulie31-stack</p>
+                </a>
+                <a href="https://www.facebook.com/share/1BSmtBJ7BA/?mibextid=wwXIfr" class="contact-card" target="_blank" data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.5" data-aos="flip-left" data-aos-delay="500">
+                    <i class="fab fa-facebook-f"></i>
+                    <h3>Facebook</h3>
+                    <p>Abdoulie Taal</p>
+                </a>
+            </div>
+
+            <p style="text-align: center; margin-top: 3rem; color: var(--muted);" data-aos="fade-in">REFERENCES: Available upon request.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <span>Abdoulie Taal</span>. Built with passion.</p>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            mirror: false,
+            duration: 850,
+            easing: 'ease-out-cubic',
+            offset: 80,
+        });
+    </script>
+</body>
+</html>
