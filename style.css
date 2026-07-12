@@ -2,20 +2,20 @@
    ROOT VARIABLES
    =========================== */
 :root {
-    --bg: #04040f;
-    --card: rgba(255, 255, 255, 0.035);
-    --card-hover: rgba(255, 255, 255, 0.06);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-glow: rgba(139, 92, 246, 0.5);
-    --text: #f1f5f9;
-    --muted: #8892a4;
-    --i: #6366f1;
-    --p: #a855f7;
-    --pk: #ec4899;
-    --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-    --gradient-soft: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.2), rgba(236,72,153,0.2));
-    --glow: 0 0 40px rgba(139, 92, 246, 0.3);
-    --nav-bg: rgba(4, 4, 15, 0.75);
+    --bg: #111111;
+    --card: #1a1a1a;
+    --card-hover: #222222;
+    --border: #333333;
+    --border-glow: transparent;
+    --text: #ffffff;
+    --muted: #a0a0a0;
+    --i: #0066cc;
+    --p: #0066cc;
+    --pk: #0066cc;
+    --gradient: #0066cc;
+    --gradient-soft: #003366;
+    --glow: none;
+    --nav-bg: #111111;
 }
 
 /* ===========================
@@ -78,10 +78,7 @@ a {
     font-size: 2.3rem;
     font-weight: 900;
     margin-bottom: 3rem;
-    background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 60%, #e879f9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
     display: inline-block;
     position: relative;
 }
@@ -125,10 +122,7 @@ a {
     font-family: 'Outfit', sans-serif;
     font-size: 1.7rem;
     font-weight: 900;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--gradient);
     letter-spacing: -0.05em;
 }
 
@@ -209,12 +203,12 @@ a {
     align-items: center;
     gap: 0.5rem;
     padding: 0.4rem 1.1rem;
-    border: 1px solid rgba(99, 102, 241, 0.45);
+    border: 1px solid #333333;
     border-radius: 50px;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #a5b4fc;
-    background: rgba(99, 102, 241, 0.1);
+    color: #0066cc;
+    background: #1a1a1a;
     margin-bottom: 1.6rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -223,8 +217,7 @@ a {
 .hero-badge-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: #6366f1;
-    animation: pulseDot 2s ease-in-out infinite;
+    background: #0066cc;
 }
 
 @keyframes pulseDot {
@@ -237,10 +230,7 @@ a {
     line-height: 1.05;
     letter-spacing: -0.04em;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 40%, #e879f9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
 }
 
 .hero p.subtitle {
@@ -250,7 +240,7 @@ a {
     line-height: 1.85;
     max-width: 540px;
     padding-left: 1.2rem;
-    border-left: 3px solid rgba(168, 85, 247, 0.5);
+    border-left: 3px solid #0066cc;
 }
 
 .hero-buttons {
@@ -279,7 +269,7 @@ a {
     position: absolute;
     top: 0; left: -100%;
     width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    background: rgba(255,255,255,0.1);
     transition: left 0.5s ease;
 }
 
@@ -294,7 +284,7 @@ a {
 
 .btn-primary:hover {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .btn-secondary {
@@ -304,8 +294,8 @@ a {
 }
 
 .btn-secondary:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    background: rgba(139, 92, 246, 0.08);
+    border-color: #0066cc;
+    background: #1a1a1a;
     transform: translateY(-2px) scale(1.05);
 }
 
@@ -377,7 +367,7 @@ section {
     color: var(--muted);
     line-height: 1.95;
     padding-left: 1.5rem;
-    border-left: 3px solid rgba(168, 85, 247, 0.4);
+    border-left: 3px solid #0066cc;
 }
 
 .education-block {
@@ -402,8 +392,8 @@ section {
 }
 
 .education-block:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    box-shadow: 0 25px 60px rgba(99, 102, 241, 0.12);
+    border-color: #0066cc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transform: translateY(-4px);
 }
 
@@ -445,9 +435,9 @@ section {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: #0066cc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #1a1a1a;
 }
 
 .service-card:hover i {
@@ -457,10 +447,7 @@ section {
 .service-card i {
     font-size: 2.8rem;
     margin-bottom: 1.2rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--gradient);
     transition: transform 0.4s ease;
 }
 
@@ -509,8 +496,8 @@ section {
 }
 
 .skill-category:hover {
-    border-color: rgba(139, 92, 246, 0.35);
-    box-shadow: 0 20px 55px rgba(99, 102, 241, 0.12);
+    border-color: #0066cc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px);
 }
 
@@ -534,17 +521,16 @@ section {
     border-radius: 50px;
     font-size: 0.78rem;
     font-weight: 500;
-    background: rgba(99, 102, 241, 0.12);
-    border: 1px solid rgba(99, 102, 241, 0.28);
-    color: #a5b4fc;
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    color: #0066cc;
     transition: all 0.3s ease;
     cursor: default;
 }
 
 .skill-tag:hover {
-    background: rgba(99, 102, 241, 0.25);
-    border-color: rgba(99, 102, 241, 0.55);
-    box-shadow: 0 0 14px rgba(99, 102, 241, 0.35);
+    background: #222222;
+    border-color: #0066cc;
     transform: translateY(-2px);
 }
 
@@ -586,8 +572,8 @@ section {
 
 .project-card:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 30px 70px rgba(168, 85, 247, 0.25);
+    border-color: #0066cc;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .project-image {
@@ -634,8 +620,8 @@ section {
 
 .project-card-side:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 30px 70px rgba(168, 85, 247, 0.25);
+    border-color: #0066cc;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .project-image-side {
@@ -683,11 +669,11 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(139, 92, 246, 0.1);
-    color: #c7d2fe;
+    background: #1a1a1a;
+    color: #0066cc;
     padding: 0.35rem 0.75rem;
     border-radius: 6px;
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    border: 1px solid #333333;
 }
 
 .project-desc {
@@ -703,7 +689,7 @@ section {
 #proj-restaurant{ background-image: url('images/media__1782838607847.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; }
 #proj-dashboard { background-image: url('images/media__1782754903648.png'); }
 #proj-weebly    { background-image: url('images/media__1782754912071.png'); }
-#proj-webdev    { background-image: url('images/webdev_new.png'); }
+#proj-webdev    { background-image: url('images/media__1783850877743.png'); }
 
 /* ===========================
    LANGUAGES
@@ -768,19 +754,16 @@ section {
 
 .contact-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.18);
-    background: rgba(255,255,255,0.05);
+    border-color: #0066cc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #1a1a1a;
 }
 
 .contact-card:hover::before { transform: scaleX(1); }
 
 .contact-card i {
     font-size: 2.2rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--gradient);
     margin-bottom: 1rem;
     display: block;
     transition: transform 0.3s ease;
@@ -842,20 +825,6 @@ footer span {
         margin: 0 auto 2.8rem;
     }
     .profile-3d-container { width: 280px; height: 340px; }
-    
-    .project-card-side {
-        flex-direction: column;
-    }
-    .project-image-side {
-        width: 100%;
-        min-width: 100%;
-        height: 250px;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-    }
-    .project-card-side .project-info {
-        padding: 1.5rem;
-    }
 }
 
 @media (max-width: 768px) {
