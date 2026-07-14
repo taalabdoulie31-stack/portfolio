@@ -6,7 +6,7 @@
     <meta name="description" content="Portfolio of Abdoulie Taal - Software Developer & Engineer">
     <title>Abdoulie Taal | Software Developer</title>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=10">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
@@ -392,7 +392,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script src="script.js?v=4"></script>
+    <script src="script2.js"></script>
     <script>
         AOS.init({
             once: true,
@@ -409,7 +409,7 @@
             <div class="contact-form-wrapper" style="margin-top: 0; box-shadow: none; border: none; max-width: 100%; padding: 0;">
                 <h3 class="contact-form-title"><i class="fas fa-paper-plane"></i> Send Me a Message</h3>
                 <p class="contact-form-subtitle" style="margin-bottom: 1.5rem;">Fill out the form below and I'll get back to you soon.</p>
-                <form id="contact-form">
+                <form id="contact-form" action="https://formspree.io/f/xeeyooaq" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="contact-name">Full Name</label>
@@ -441,8 +441,8 @@
                         <i class="fas fa-check-circle"></i>
                         <p>Message sent successfully!</p>
                     </div>
-                    <div id="form-error" class="form-error" style="display:none;">
-                        <i class="fas fa-exclamation-circle"></i>
+                    <div id="form-error" class="form-error" style="display:none; background: rgba(220, 50, 50, 0.1); border: 1px solid rgba(220, 50, 50, 0.3); color: #ff6b6b; padding: 1rem 1.5rem; border-radius: 12px; margin-top: 1.2rem; align-items: center; gap: 0.8rem;">
+                        <i class="fas fa-exclamation-circle" style="font-size: 1.3rem;"></i>
                         <p>Something went wrong. Please try again.</p>
                     </div>
                 </form>
