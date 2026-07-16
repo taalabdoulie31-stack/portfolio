@@ -260,4 +260,441 @@ if (contactModal && openContactBtn && closeContactBtn) {
     });
 }
 
+// ===========================
+// THEME TOGGLE LOGIC
+// ===========================
+const themeToggleBtn = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
 
+if (currentTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+} else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+}
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'dark' || !theme) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            themeToggleBtn.style.transform = 'rotate(180deg)';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            themeToggleBtn.style.transform = 'rotate(0deg)';
+        }
+    });
+}
+
+// ===========================
+// BACK TO TOP BUTTON
+// ===========================
+const backToTopBtn = document.getElementById('back-to-top');
+
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// ===========================
+// INSANE EFFECTS LOGIC
+// ===========================
+
+// Global mouse tracking
+let globalMouseX = window.innerWidth / 2;
+let globalMouseY = window.innerHeight / 2;
+
+// 1. Custom Fluid Cursor
+const cursor = document.getElementById('cursor');
+const cursorFollower = document.getElementById('cursor-follower');
+
+if (cursor && cursorFollower) {
+    let followerX = window.innerWidth / 2;
+    let followerY = window.innerHeight / 2;
+    
+    let lastTrailTime = 0;
+    document.addEventListener('mousemove', (e) => {
+        globalMouseX = e.clientX;
+        globalMouseY = e.clientY;
+        cursor.style.left = globalMouseX + 'px';
+        cursor.style.top = globalMouseY + 'px';
+
+        // Cursor Trail Effect
+        const now = Date.now();
+        if (now - lastTrailTime > 25) { // Limit trail frequency
+            const dot = document.createElement('div');
+            dot.className = 'cursor-trail';
+            dot.style.left = globalMouseX + 'px';
+            dot.style.top = globalMouseY + 'px';
+            document.body.appendChild(dot);
+            
+            requestAnimationFrame(() => {
+                dot.style.opacity = '0';
+                dot.style.transform = 'scale(0.1) translate(-50%, -50%)';
+            });
+            
+            setTimeout(() => dot.remove(), 400);
+            lastTrailTime = now;
+        }
+
+        // Hero 3D Parallax Tracking
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image-wrapper');
+        const parallaxX = (window.innerWidth / 2 - globalMouseX) / 40;
+        const parallaxY = (window.innerHeight / 2 - globalMouseY) / 40;
+        
+        if (heroContent) heroContent.style.transform = `translate(${parallaxX}px, ${parallaxY}px)`;
+        if (heroImage) heroImage.style.transform = `translate(${-parallaxX}px, ${-parallaxY}px)`;
+    });
+
+    // Cursor Follower Scroll Progress Ring
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = Math.max(0.1, (winScroll / height) * 100);
+        
+        if (cursorFollower && !cursorFollower.classList.contains('hover-active')) {
+            cursorFollower.style.background = `conic-gradient(var(--accent) ${scrolled}%, rgba(59, 130, 246, 0.05) ${scrolled}%)`;
+        }
+    });
+
+    // Easing function for follower
+    function loop() {
+        followerX += (globalMouseX - followerX) * 0.2;
+        followerY += (globalMouseY - followerY) * 0.2;
+        cursorFollower.style.left = followerX + 'px';
+        cursorFollower.style.top = followerY + 'px';
+        requestAnimationFrame(loop);
+    }
+    loop();
+
+    // Hover effect
+    const hoverElements = document.querySelectorAll('a, button, .magnetic-btn, .project-card, .skill-category, .contact-card, .service-card');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorFollower.classList.add('hover-active'));
+        el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hover-active'));
+    });
+}
+
+// 2. Spotlight "Glow" Effect on Cards
+const glowCards = document.querySelectorAll('.project-card, .project-card-side, .skill-category, .service-card, .contact-card');
+glowCards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+
+// 3. Magnetic Buttons
+const magneticBtns = document.querySelectorAll('.magnetic-btn');
+magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = `translate(0px, 0px)`;
+    });
+});
+
+// 4. Decoder Text Reveal
+const glitchText = document.querySelector('.glitch-text');
+if (glitchText) {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let interval = null;
+    
+    const startGlitch = () => {
+        let iteration = 0;
+        clearInterval(interval);
+        const originalText = glitchText.dataset.value || glitchText.innerText;
+        
+        interval = setInterval(() => {
+            glitchText.innerText = originalText
+                .split("")
+                .map((letter, index) => {
+                    if(index < iteration) return originalText[index];
+                    return letters[Math.floor(Math.random() * 26)];
+                })
+                .join("");
+            
+            if(iteration >= originalText.length){ 
+                clearInterval(interval);
+            }
+            iteration += 1 / 3;
+        }, 30);
+    };
+
+    // Trigger on load
+    setTimeout(startGlitch, 500);
+}
+
+// 5. Interactive Canvas Particles
+const canvas = document.getElementById('bg-canvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height, particles;
+
+    function initCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        particles = [];
+        
+        const numParticles = Math.min(Math.floor(window.innerWidth / 15), 100);
+        for(let i=0; i<numParticles; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.radius = Math.random() * 1.5 + 0.5;
+            this.baseRadius = this.radius;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if(this.x < 0 || this.x > width) this.vx = -this.vx;
+            if(this.y < 0 || this.y > height) this.vy = -this.vy;
+
+            // Mouse interaction
+            const dx = globalMouseX - this.x;
+            const dy = globalMouseY - this.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 150) {
+                this.x -= dx * 0.02;
+                this.y -= dy * 0.02;
+                this.radius = this.baseRadius * 2;
+            } else {
+                this.radius = this.baseRadius;
+            }
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            // Color particles based on proximity to mouse — glowing blue/purple near cursor
+            const dx = globalMouseX - this.x;
+            const dy = globalMouseY - this.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if (dist < 180) {
+                ctx.fillStyle = `rgba(139, 92, 246, ${1 - dist/180})`;
+            } else {
+                ctx.fillStyle = isLight ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.12)';
+            }
+            ctx.fill();
+        }
+    }
+
+    function animateCanvas() {
+        ctx.clearRect(0, 0, width, height);
+        
+        for(let i=0; i<particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            
+            for(let j=i+1; j<particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                
+                if (dist < 130) {
+                    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+                    const alpha = 0.08 - dist/1625;
+                    // Lines glow purple/blue near cursor
+                    const mx = (particles[i].x + particles[j].x) / 2;
+                    const my = (particles[i].y + particles[j].y) / 2;
+                    const cdx = globalMouseX - mx;
+                    const cdy = globalMouseY - my;
+                    const cdist = Math.sqrt(cdx*cdx + cdy*cdy);
+                    if (cdist < 200) {
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${alpha * 4})`;
+                    } else {
+                        ctx.strokeStyle = isLight ? `rgba(0,0,0,${alpha})` : `rgba(255,255,255,${alpha})`;
+                    }
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animateCanvas);
+    }
+
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+    animateCanvas();
+}
+
+// 6. SUPERNOVA CLICK EXPLOSION
+document.addEventListener('click', (e) => {
+    // Don't fire on interactive elements to avoid disruption
+    const tag = e.target.tagName.toLowerCase();
+    if (['a', 'button', 'input', 'textarea', 'select', 'label'].includes(tag)) return;
+
+    const colors = ['#a855f7', '#3b82f6', '#06b6d4', '#f59e0b', '#ec4899'];
+    const numBursts = 18;
+    
+    for (let i = 0; i < numBursts; i++) {
+        const spark = document.createElement('div');
+        const angle = (360 / numBursts) * i;
+        const velocity = 60 + Math.random() * 80;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const size = 4 + Math.random() * 6;
+        
+        Object.assign(spark.style, {
+            position: 'fixed',
+            left: e.clientX + 'px',
+            top: e.clientY + 'px',
+            width: size + 'px',
+            height: size + 'px',
+            borderRadius: Math.random() > 0.5 ? '50%' : '2px',
+            background: color,
+            pointerEvents: 'none',
+            zIndex: '99999',
+            transform: 'translate(-50%, -50%)',
+            boxShadow: `0 0 ${size * 2}px ${color}`,
+            transition: `transform 0.8s cubic-bezier(0.2, 0, 0.8, 1), opacity 0.8s ease-out`,
+        });
+        
+        document.body.appendChild(spark);
+        
+        const radians = (angle * Math.PI) / 180;
+        const tx = Math.cos(radians) * velocity;
+        const ty = Math.sin(radians) * velocity;
+        
+        requestAnimationFrame(() => {
+            spark.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0.1)`;
+            spark.style.opacity = '0';
+        });
+        
+        setTimeout(() => spark.remove(), 800);
+    }
+    
+    // Shockwave ripple at click point
+    const ripple = document.createElement('div');
+    Object.assign(ripple.style, {
+        position: 'fixed',
+        left: e.clientX + 'px',
+        top: e.clientY + 'px',
+        width: '0px',
+        height: '0px',
+        borderRadius: '50%',
+        border: '2px solid rgba(168, 85, 247, 0.8)',
+        pointerEvents: 'none',
+        zIndex: '99998',
+        transform: 'translate(-50%, -50%)',
+        transition: 'width 0.7s ease-out, height 0.7s ease-out, opacity 0.7s ease-out, border-color 0.7s',
+    });
+    document.body.appendChild(ripple);
+    
+    requestAnimationFrame(() => {
+        ripple.style.width = '200px';
+        ripple.style.height = '200px';
+        ripple.style.opacity = '0';
+        ripple.style.borderColor = 'rgba(59, 130, 246, 0)';
+    });
+    setTimeout(() => ripple.remove(), 700);
+
+    // Glitch the hero heading on every click
+    const hero = document.querySelector('.glitch-text');
+    if (hero) {
+        hero.classList.remove('glitch-anim');
+        void hero.offsetWidth;
+        hero.classList.add('glitch-anim');
+        hero.addEventListener('animationend', () => hero.classList.remove('glitch-anim'), { once: true });
+    }
+});
+
+// 7. SECTION ENTRANCE — 3D TILT REVEAL
+const sectionHeaders = document.querySelectorAll('.section-title');
+const sectionGlitchObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'none';
+            entry.target.offsetHeight;
+            entry.target.style.animation = '';
+            entry.target.classList.add('glitch-anim');
+            sectionGlitchObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+sectionHeaders.forEach(el => sectionGlitchObserver.observe(el));
+
+// 8. NEON GLOW PULSE ON SKILL TAGS
+const skillTags = document.querySelectorAll('.skill-tag, .tech-tag');
+skillTags.forEach((tag, i) => {
+    tag.style.animationDelay = `${(i * 0.15) % 3}s`;
+    tag.addEventListener('mouseenter', () => {
+        const colors = ['#a855f7','#3b82f6','#06b6d4','#f59e0b','#ec4899'];
+        const c = colors[Math.floor(Math.random() * colors.length)];
+        tag.style.boxShadow = `0 0 12px ${c}, 0 0 24px ${c}55`;
+        tag.style.borderColor = c;
+        tag.style.color = c;
+        tag.style.transition = 'box-shadow 0.3s, border-color 0.3s, color 0.3s';
+    });
+    tag.addEventListener('mouseleave', () => {
+        tag.style.boxShadow = '';
+        tag.style.borderColor = '';
+        tag.style.color = '';
+    });
+});
+
+// 9. SCROLL-REACTIVE BLOB COLORS
+const blobs = document.querySelectorAll('.blob');
+window.addEventListener('scroll', () => {
+    const progress = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    const hue1 = Math.round(220 + progress * 140); // blue -> pink
+    const hue2 = Math.round(270 + progress * 90);  // purple -> orange
+    if (blobs[0]) blobs[0].style.background = `hsla(${hue1}, 80%, 60%, 0.3)`;
+    if (blobs[1]) blobs[1].style.background = `hsla(${hue2}, 70%, 60%, 0.25)`;
+    if (blobs[2]) blobs[2].style.background = `hsla(${(hue1+hue2)/2}, 75%, 65%, 0.25)`;
+});
+
+// 10. TYPING ANIMATION ON SUBTITLE
+const subtitle = document.querySelector('.hero p.subtitle');
+if (subtitle) {
+    // Use textContent only — slicing raw innerHTML breaks HTML tags and hangs the page
+    const text = subtitle.textContent;
+    subtitle.textContent = '';
+    subtitle.style.opacity = '1';
+    let i = 0;
+    setTimeout(() => {
+        const typeInterval = setInterval(() => {
+            subtitle.textContent = text.substring(0, i);
+            i++;
+            if (i > text.length) {
+                clearInterval(typeInterval);
+                subtitle.textContent = text;
+            }
+        }, 22);
+    }, 1200); // Start after loader fades out
+}
