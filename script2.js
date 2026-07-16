@@ -553,85 +553,8 @@ if (canvas) {
     animateCanvas();
 }
 
-// 6. SUPERNOVA CLICK EXPLOSION
-document.addEventListener('click', (e) => {
-    // Don't fire on interactive elements to avoid disruption
-    const tag = e.target.tagName.toLowerCase();
-    if (['a', 'button', 'input', 'textarea', 'select', 'label'].includes(tag)) return;
 
-    const colors = ['#a855f7', '#3b82f6', '#06b6d4', '#f59e0b', '#ec4899'];
-    const numBursts = 18;
-    
-    for (let i = 0; i < numBursts; i++) {
-        const spark = document.createElement('div');
-        const angle = (360 / numBursts) * i;
-        const velocity = 60 + Math.random() * 80;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const size = 4 + Math.random() * 6;
-        
-        Object.assign(spark.style, {
-            position: 'fixed',
-            left: e.clientX + 'px',
-            top: e.clientY + 'px',
-            width: size + 'px',
-            height: size + 'px',
-            borderRadius: Math.random() > 0.5 ? '50%' : '2px',
-            background: color,
-            pointerEvents: 'none',
-            zIndex: '99999',
-            transform: 'translate(-50%, -50%)',
-            boxShadow: `0 0 ${size * 2}px ${color}`,
-            transition: `transform 0.8s cubic-bezier(0.2, 0, 0.8, 1), opacity 0.8s ease-out`,
-        });
-        
-        document.body.appendChild(spark);
-        
-        const radians = (angle * Math.PI) / 180;
-        const tx = Math.cos(radians) * velocity;
-        const ty = Math.sin(radians) * velocity;
-        
-        requestAnimationFrame(() => {
-            spark.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0.1)`;
-            spark.style.opacity = '0';
-        });
-        
-        setTimeout(() => spark.remove(), 800);
-    }
-    
-    // Shockwave ripple at click point
-    const ripple = document.createElement('div');
-    Object.assign(ripple.style, {
-        position: 'fixed',
-        left: e.clientX + 'px',
-        top: e.clientY + 'px',
-        width: '0px',
-        height: '0px',
-        borderRadius: '50%',
-        border: '2px solid rgba(168, 85, 247, 0.8)',
-        pointerEvents: 'none',
-        zIndex: '99998',
-        transform: 'translate(-50%, -50%)',
-        transition: 'width 0.7s ease-out, height 0.7s ease-out, opacity 0.7s ease-out, border-color 0.7s',
-    });
-    document.body.appendChild(ripple);
-    
-    requestAnimationFrame(() => {
-        ripple.style.width = '200px';
-        ripple.style.height = '200px';
-        ripple.style.opacity = '0';
-        ripple.style.borderColor = 'rgba(59, 130, 246, 0)';
-    });
-    setTimeout(() => ripple.remove(), 700);
 
-    // Glitch the hero heading on every click
-    const hero = document.querySelector('.glitch-text');
-    if (hero) {
-        hero.classList.remove('glitch-anim');
-        void hero.offsetWidth;
-        hero.classList.add('glitch-anim');
-        hero.addEventListener('animationend', () => hero.classList.remove('glitch-anim'), { once: true });
-    }
-});
 
 // 7. SECTION ENTRANCE — 3D TILT REVEAL
 const sectionHeaders = document.querySelectorAll('.section-title');
