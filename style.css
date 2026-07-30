@@ -725,24 +725,60 @@ section {
 #proj-webdev    { background-image: url('images/media__1783850877743.png'); }
 
 /* ===========================
-   LANGUAGES
+   INFO GRID (Languages, Soft Skills, Hard Skills, Hobbies)
    =========================== */
-#languages .about-content-full {
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.info-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 18px;
-    padding: 2.2rem 2.5rem;
+    padding: 2rem;
+    text-align: center;
     backdrop-filter: blur(20px);
-    max-width: 950px;
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-#languages .about-content-full p {
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.info-card:hover::before { transform: scaleX(1); }
+
+.info-card:hover {
+    border-color: #0066cc;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+}
+
+.info-card .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.9;
     border: none;
     padding: 0;
-    font-size: 1.15rem;
-    text-align: center;
-    color: var(--muted);
 }
+
 
 /* ===========================
    CONTACT
@@ -1111,10 +1147,9 @@ footer span {
     .project-card-side .project-info {
         padding: 2rem;
     }
-    /* Languages/Soft Skills 4-col grid → 2-col on tablet */
-    #languages .container > div[style*="repeat(4"],
-    #languages .container > div {
-        grid-template-columns: repeat(2, 1fr) !important;
+    /* Info grid (Languages, Soft Skills, Hard Skills, Hobbies) → 2 cols on tablet */
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1162,11 +1197,10 @@ footer span {
     .form-row { grid-template-columns: 1fr; }
     .contact-modal-content { padding: 2rem 1.5rem; }
 
-    /* Force languages/skills section to 2 columns on mobile */
-    #languages .container > div[style*="repeat(4"],
-    #languages .container > div {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem !important;
+    /* Info grid → 2 cols on mobile */
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     /* Reduce section padding on mobile */
@@ -1185,11 +1219,10 @@ footer span {
     .btn { width: 100%; text-align: center; }
     .profile-3d-container { width: 220px; height: 280px; }
     
-    /* Languages/Soft Skills 4-col grid → 1-col on small phones */
-    #languages .container > div[style*="repeat(4"],
-    #languages .container > div {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 0.8rem !important;
+    /* Info grid → 1 col on small phones */
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
     }
 
     .section-title { font-size: 1.7rem; }
