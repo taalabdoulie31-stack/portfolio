@@ -46,6 +46,12 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    touch-action: manipulation;
+}
+
+html {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -54,7 +60,10 @@ body {
     color: var(--text);
     line-height: 1.7;
     overflow-x: hidden;
+    overflow-y: auto;
     transition: background 0.4s ease, color 0.4s ease;
+    /* Prevent iOS bounce from locking the page */
+    -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3, h4 {
@@ -193,9 +202,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 5% 0 5%;
+    padding: 6rem 5% 4rem 5%;
     position: relative;
-    overflow: hidden;
+    /* Removed overflow:hidden — it was blocking scroll on iOS/Android */
 }
 
 .hero-container {
@@ -650,7 +659,7 @@ section {
 
 .project-image-side {
     width: 420px;
-    min-width: 420px;
+    min-width: 280px;
     background-color: #07071a;
     background-size: contain;
     background-repeat: no-repeat;
@@ -1102,6 +1111,11 @@ footer span {
     .project-card-side .project-info {
         padding: 2rem;
     }
+    /* Languages/Soft Skills 4-col grid → 2-col on tablet */
+    #languages .container > div[style*="repeat(4"],
+    #languages .container > div {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1141,11 +1155,46 @@ footer span {
         color: #a855f7;
     }
 
-    .hero h1 { font-size: 2.8rem; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero p.subtitle { font-size: 0.9rem; }
     .contact-cards { flex-wrap: wrap; }
     .contact-card { flex: 1 1 130px; }
     .form-row { grid-template-columns: 1fr; }
     .contact-modal-content { padding: 2rem 1.5rem; }
+
+    /* Force languages/skills section to 2 columns on mobile */
+    #languages .container > div[style*="repeat(4"],
+    #languages .container > div {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    /* Reduce section padding on mobile */
+    section { padding: 4rem 0; }
+
+    /* Prevent horizontal overflow from animations */
+    .project-card, .project-card-side {
+        transform: none !important;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn { width: 100%; text-align: center; }
+    .profile-3d-container { width: 220px; height: 280px; }
+    
+    /* Languages/Soft Skills 4-col grid → 1-col on small phones */
+    #languages .container > div[style*="repeat(4"],
+    #languages .container > div {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.8rem !important;
+    }
+
+    .section-title { font-size: 1.7rem; }
+
+    .contact-card { flex: 1 1 100%; }
 }
 
 /* ===========================

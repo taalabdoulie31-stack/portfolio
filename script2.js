@@ -321,6 +321,9 @@ if (backToTopBtn) {
 let globalMouseX = window.innerWidth / 2;
 let globalMouseY = window.innerHeight / 2;
 
+// Detect touch/mobile device — disable JS-driven transforms on touch screens
+const isTouchDevice = () => ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
 // 1. Custom Fluid Cursor
 const cursor = document.getElementById('cursor');
 const cursorFollower = document.getElementById('cursor-follower');
@@ -354,14 +357,16 @@ if (cursor && cursorFollower) {
             lastTrailTime = now;
         }
 
-        // Hero 3D Parallax Tracking
-        const heroContent = document.querySelector('.hero-content');
-        const heroImage = document.querySelector('.hero-image-wrapper');
-        const parallaxX = (window.innerWidth / 2 - globalMouseX) / 40;
-        const parallaxY = (window.innerHeight / 2 - globalMouseY) / 40;
-        
-        if (heroContent) heroContent.style.transform = `translate(${parallaxX}px, ${parallaxY}px)`;
-        if (heroImage) heroImage.style.transform = `translate(${-parallaxX}px, ${-parallaxY}px)`;
+        // Hero 3D Parallax Tracking — skip on touch devices to allow normal scroll
+        if (!isTouchDevice()) {
+            const heroContent = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image-wrapper');
+            const parallaxX = (window.innerWidth / 2 - globalMouseX) / 40;
+            const parallaxY = (window.innerHeight / 2 - globalMouseY) / 40;
+            
+            if (heroContent) heroContent.style.transform = `translate(${parallaxX}px, ${parallaxY}px)`;
+            if (heroImage) heroImage.style.transform = `translate(${-parallaxX}px, ${-parallaxY}px)`;
+        }
     });
 
     // Cursor Follower Scroll Progress Ring
@@ -405,19 +410,21 @@ glowCards.forEach(card => {
     });
 });
 
-// 3. Magnetic Buttons
+// 3. Magnetic Buttons — disabled on touch devices (they don't have hover/mousemove)
 const magneticBtns = document.querySelectorAll('.magnetic-btn');
-magneticBtns.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+if (!isTouchDevice()) {
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = `translate(0px, 0px)`;
+        });
     });
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = `translate(0px, 0px)`;
-    });
-});
+}
 
 // 4. Decoder Text Reveal
 const glitchText = document.querySelector('.glitch-text');
