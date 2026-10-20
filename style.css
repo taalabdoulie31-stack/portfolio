@@ -2,20 +2,20 @@
    ROOT VARIABLES
    =========================== */
 :root {
-    --bg: #04040f;
+    --bg: #050505;
     --card: rgba(255, 255, 255, 0.035);
     --card-hover: rgba(255, 255, 255, 0.06);
     --border: rgba(255, 255, 255, 0.08);
-    --border-glow: rgba(139, 92, 246, 0.5);
+    --border-glow: rgba(165, 165, 165, 0.5);
     --text: #f1f5f9;
     --muted: #8892a4;
-    --i: #6366f1;
-    --p: #a855f7;
-    --pk: #ec4899;
-    --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-    --gradient-soft: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.2), rgba(236,72,153,0.2));
-    --glow: 0 0 40px rgba(139, 92, 246, 0.3);
-    --nav-bg: rgba(4, 4, 15, 0.75);
+    --i: #888888;
+    --p: #b8b8b8;
+    --pk: #f0f0f0;
+    --gradient: linear-gradient(135deg, #888888 0%, #b8b8b8 50%, #f0f0f0 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(90,90,90,0.18), rgba(160,160,160,0.14), rgba(240,240,240,0.1));
+    --glow: 0 0 40px rgba(180, 180, 180, 0.18);
+    --nav-bg: rgba(5, 5, 5, 0.82);
 }
 
 /* ===========================
@@ -78,7 +78,7 @@ a {
     font-size: 2.3rem;
     font-weight: 900;
     margin-bottom: 3rem;
-    background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 60%, #e879f9 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #bcbcbc 60%, #eeeeee 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -209,12 +209,12 @@ a {
     align-items: center;
     gap: 0.5rem;
     padding: 0.4rem 1.1rem;
-    border: 1px solid rgba(99, 102, 241, 0.45);
+    border: 1px solid rgba(145, 145, 145, 0.45);
     border-radius: 50px;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #a5b4fc;
-    background: rgba(99, 102, 241, 0.1);
+    color: #d0d0d0;
+    background: rgba(145, 145, 145, 0.1);
     margin-bottom: 1.6rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -223,7 +223,7 @@ a {
 .hero-badge-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: #6366f1;
+    background: #888888;
     animation: pulseDot 2s ease-in-out infinite;
 }
 
@@ -237,7 +237,7 @@ a {
     line-height: 1.05;
     letter-spacing: -0.04em;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 40%, #e879f9 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #bcbcbc 40%, #eeeeee 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -250,7 +250,7 @@ a {
     line-height: 1.85;
     max-width: 540px;
     padding-left: 1.2rem;
-    border-left: 3px solid rgba(168, 85, 247, 0.5);
+    border-left: 3px solid rgba(185, 185, 185, 0.5);
 }
 
 .hero-buttons {
@@ -294,7 +294,7 @@ a {
 
 .btn-primary:hover {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 8px 25px rgba(185, 185, 185, 0.4);
 }
 
 .btn-secondary {
@@ -304,8 +304,8 @@ a {
 }
 
 .btn-secondary:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(165, 165, 165, 0.5);
+    background: rgba(165, 165, 165, 0.08);
     transform: translateY(-2px) scale(1.05);
 }
 
@@ -377,7 +377,7 @@ section {
     color: var(--muted);
     line-height: 1.95;
     padding-left: 1.5rem;
-    border-left: 3px solid rgba(168, 85, 247, 0.4);
+    border-left: 3px solid rgba(185, 185, 185, 0.4);
 }
 
 .education-block {
@@ -402,8 +402,8 @@ section {
 }
 
 .education-block:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    box-shadow: 0 25px 60px rgba(99, 102, 241, 0.12);
+    border-color: rgba(165, 165, 165, 0.3);
+    box-shadow: 0 25px 60px rgba(145, 145, 145, 0.12);
     transform: translateY(-4px);
 }
 
@@ -445,8 +445,8 @@ section {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+    border-color: rgba(165, 165, 165, 0.5);
+    box-shadow: 0 15px 40px rgba(145, 145, 145, 0.15);
     background: rgba(255, 255, 255, 0.05);
 }
 
@@ -509,8 +509,8 @@ section {
 }
 
 .skill-category:hover {
-    border-color: rgba(139, 92, 246, 0.35);
-    box-shadow: 0 20px 55px rgba(99, 102, 241, 0.12);
+    border-color: rgba(165, 165, 165, 0.35);
+    box-shadow: 0 20px 55px rgba(145, 145, 145, 0.12);
     transform: translateY(-6px);
 }
 
@@ -534,17 +534,17 @@ section {
     border-radius: 50px;
     font-size: 0.78rem;
     font-weight: 500;
-    background: rgba(99, 102, 241, 0.12);
-    border: 1px solid rgba(99, 102, 241, 0.28);
-    color: #a5b4fc;
+    background: rgba(145, 145, 145, 0.12);
+    border: 1px solid rgba(145, 145, 145, 0.28);
+    color: #d0d0d0;
     transition: all 0.3s ease;
     cursor: default;
 }
 
 .skill-tag:hover {
-    background: rgba(99, 102, 241, 0.25);
-    border-color: rgba(99, 102, 241, 0.55);
-    box-shadow: 0 0 14px rgba(99, 102, 241, 0.35);
+    background: rgba(145, 145, 145, 0.25);
+    border-color: rgba(145, 145, 145, 0.55);
+    box-shadow: 0 0 14px rgba(145, 145, 145, 0.35);
     transform: translateY(-2px);
 }
 
@@ -586,14 +586,14 @@ section {
 
 .project-card:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 30px 70px rgba(168, 85, 247, 0.25);
+    border-color: rgba(165, 165, 165, 0.4);
+    box-shadow: 0 30px 70px rgba(185, 185, 185, 0.25);
 }
 
 .project-image {
     width: 100%;
     height: 380px;
-    background-color: #07071a;
+    background-color: #080808;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -634,14 +634,14 @@ section {
 
 .project-card-side:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 30px 70px rgba(168, 85, 247, 0.25);
+    border-color: rgba(165, 165, 165, 0.4);
+    box-shadow: 0 30px 70px rgba(185, 185, 185, 0.25);
 }
 
 .project-image-side {
     width: 420px;
     min-width: 420px;
-    background-color: #07071a;
+    background-color: #080808;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -683,11 +683,11 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(139, 92, 246, 0.1);
-    color: #c7d2fe;
+    background: rgba(165, 165, 165, 0.1);
+    color: #bcbcbc;
     padding: 0.35rem 0.75rem;
     border-radius: 6px;
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    border: 1px solid rgba(165, 165, 165, 0.2);
 }
 
 .project-desc {
@@ -768,8 +768,8 @@ section {
 
 .contact-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.18);
+    border-color: rgba(165, 165, 165, 0.4);
+    box-shadow: 0 20px 50px rgba(145, 145, 145, 0.18);
     background: rgba(255,255,255,0.05);
 }
 
@@ -878,7 +878,7 @@ footer span {
     
     .hamburger.active {
         transform: rotate(90deg);
-        color: #a855f7;
+        color: #b8b8b8;
     }
 
     .hero h1 { font-size: 2.8rem; }
@@ -939,7 +939,7 @@ footer span {
 
 .close-modal:hover,
 .close-modal:focus {
-    color: #a855f7;
+    color: #b8b8b8;
     text-decoration: none;
     cursor: pointer;
 }
@@ -965,7 +965,7 @@ footer span {
     width: 50px;
     height: 50px;
     border: 4px solid rgba(255, 255, 255, 0.1);
-    border-top: 4px solid #a855f7;
+    border-top: 4px solid #b8b8b8;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -1008,7 +1008,7 @@ footer span {
     display: flex;
     gap: 1.2rem;
     scrollbar-width: thin;
-    scrollbar-color: rgba(139, 92, 246, 0.5) rgba(255, 255, 255, 0.05);
+    scrollbar-color: rgba(165, 165, 165, 0.5) rgba(255, 255, 255, 0.05);
 }
 
 .studyai-gallery-container::-webkit-scrollbar {
@@ -1019,7 +1019,7 @@ footer span {
     border-radius: 4px;
 }
 .studyai-gallery-container::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, 0.5);
+    background: rgba(165, 165, 165, 0.5);
     border-radius: 4px;
 }
 
@@ -1042,6 +1042,6 @@ footer span {
 
 .studyai-img:hover {
     transform: translateY(-6px) scale(1.02);
-    border-color: rgba(139, 92, 246, 0.8);
-    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
+    border-color: rgba(165, 165, 165, 0.8);
+    box-shadow: 0 15px 40px rgba(185, 185, 185, 0.5);
 }
