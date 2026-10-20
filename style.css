@@ -286,15 +286,24 @@ a {
 .btn:hover::before { left: 100%; }
 
 .btn-primary {
-    background: var(--gradient);
-    color: #fff;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: #f2f2f2;
+    color: #080808;
+    border: 1px solid #f2f2f2;
+    font-weight: 700;
+    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.16);
 }
 
 .btn-primary:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #000000;
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(185, 185, 185, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid #b8b8b8;
+    outline-offset: 4px;
 }
 
 .btn-secondary {
