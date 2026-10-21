@@ -13,7 +13,7 @@
     --p: #8b5e3c;
     --pk: #d2b9a2;
     --accent: #8b5e3c;
-    --glow: none;
+    --glow: 0 0 28px rgba(139, 94, 60, 0.12);
     --nav-bg: rgba(9, 8, 7, 0.98);
 }
 
@@ -268,33 +268,33 @@ a {
 .btn:hover::before { left: 100%; }
 
 .btn-primary {
-    background: #8b5e3c;
-    color: #f3ece4;
-    border: 1px solid #8b5e3c;
+    background: #777;
+    color: #f3f3f3;
+    border: 1px solid #777;
     font-weight: 700;
 }
 
 .btn-primary:hover {
-    background: #a77a51;
-    border-color: #a77a51;
+    background: #888;
+    border-color: #888;
     color: #f3ece4;
     transform: translateY(-2px);
 }
 
 .btn-primary:focus-visible {
-    outline: 3px solid #a77a51;
+    outline: 3px solid #aaa;
     outline-offset: 4px;
 }
 
 .btn-secondary {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
+    background: #777;
+    border: 1px solid #777;
+    color: #f3f3f3;
 }
 
 .btn-secondary:hover {
-    border-color: rgba(139, 94, 60, 0.2);
-    background: rgba(139, 94, 60, 0.08);
+    border-color: #888;
+    background: #888;
     transform: translateY(-2px);
 }
 
@@ -965,11 +965,19 @@ footer span {
     border-color: rgba(139, 94, 60, 0.8);
 }
 
-/* Use flat surfaces and keep the layout still. */
+/* Keep the layout still while retaining a soft warm light on the existing cards. */
 *, *::before, *::after {
     animation: none !important;
     transition: none !important;
-    text-shadow: none !important;
+}
+
+.service-card,
+.skill-category,
+.project-card,
+.project-card-side,
+.contact-card,
+.education-block {
+    box-shadow: var(--glow);
 }
 
 @media (max-width: 768px) {
