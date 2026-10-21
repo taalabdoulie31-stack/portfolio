@@ -1,13 +1,6 @@
-// Navbar & Scroll Progress Bar
+// Navbar scroll state
 window.addEventListener('scroll', () => {
-    // Progress bar
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    const progressBar = document.getElementById('progress-bar');
-    if (progressBar) {
-        progressBar.style.width = scrolled + '%';
-    }
 
     // Navbar effect
     const navbar = document.querySelector('.navbar');
@@ -69,26 +62,6 @@ sections.forEach(section => {
     if (section.id) sectionObserver.observe(section);
 });
 
-// Add some simple animation to project cards on scroll
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.project-card, .project-card-side, .skill-category, .stat-item').forEach((el) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out';
-    observer.observe(el);
-});
 
 // ===========================
 // IMAGE MODAL LOGIC
@@ -128,40 +101,3 @@ if (modal && modalImg && closeBtn) {
         }
     });
 }
-
-// ===========================
-// LOADER & MICRO-INTERACTIONS
-// ===========================
-window.addEventListener('load', () => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-        loader.classList.add('hide-loader');
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500); // Wait for transition to finish
-    }
-});
-
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        // Create span element
-        let ripples = document.createElement('span');
-        
-        // Calculate position
-        let x = e.clientX - e.target.getBoundingClientRect().left;
-        let y = e.clientY - e.target.getBoundingClientRect().top;
-        
-        // Set position and add class
-        ripples.style.left = x + 'px';
-        ripples.style.top = y + 'px';
-        ripples.classList.add('ripple');
-        
-        // Append to button
-        this.appendChild(ripples);
-        
-        // Remove after animation completes
-        setTimeout(() => {
-            ripples.remove();
-        }, 600);
-    });
-});
