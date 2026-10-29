@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Abdoulie Taal - Software Developer & Engineer">
+    <meta property="og:title" content="Abdoulie Taal | Software Developer">
+    <meta property="og:description" content="Portfolio of Abdoulie Taal - Software Developer & Engineer">
+    <meta property="og:type" content="website">
     <title>Abdoulie Taal | Software Developer</title>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=10">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
@@ -14,6 +17,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Background Effects -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="ambient-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
 
     <!-- Full Screen Loader -->
     <div id="loader">
@@ -27,17 +41,22 @@
     <!-- Navbar -->
     <nav class="navbar">
         <a href="#home" class="logo">AT.</a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#languages">Skills & Interests</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
+        <div class="nav-actions">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#languages">Skills & Interests</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -49,11 +68,11 @@
                     <span class="hero-badge-dot"></span>
                     Available for Work
                 </div>
-                <h1>ABDOULIE TAAL</h1>
+                <h1 class="glitch-text" data-value="ABDOULIE TAAL">ABDOULIE TAAL</h1>
                 <p class="subtitle">Software Developer &amp; Engineer · Full Stack · Mobile &amp; Web Apps · <span style="white-space: nowrap;">E-Commerce</span> · Data Analytics · Tableau Developer</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="#projects" class="btn btn-primary magnetic-btn">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary magnetic-btn">Contact Me</a>
                 </div>
             </div>
             <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1000">
@@ -83,11 +102,11 @@
                 </ul>
                 <div class="studyai-gallery-container" data-aos="fade-up" data-aos-delay="200">
                     <div class="studyai-gallery">
-                        <img src="images/studyai_1.png" alt="StudyAI Dashboard" class="studyai-img">
-                        <img src="images/studyai_2.png" alt="StudyAI Empty State" class="studyai-img">
-                        <img src="images/studyai_3.png" alt="StudyAI Upload" class="studyai-img">
-                        <img src="images/studyai_4.png" alt="StudyAI How it works" class="studyai-img">
-                        <img src="images/studyai_5.png" alt="StudyAI Create Course" class="studyai-img">
+                        <img src="images/studyai_1.png" alt="StudyAI Dashboard" class="studyai-img" loading="lazy">
+                        <img src="images/studyai_2.png" alt="StudyAI Empty State" class="studyai-img" loading="lazy">
+                        <img src="images/studyai_3.png" alt="StudyAI Upload" class="studyai-img" loading="lazy">
+                        <img src="images/studyai_4.png" alt="StudyAI How it works" class="studyai-img" loading="lazy">
+                        <img src="images/studyai_5.png" alt="StudyAI Create Course" class="studyai-img" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -199,6 +218,7 @@
             <h2 class="section-title" data-aos="zoom-in" data-aos-duration="700">PROJECTS</h2>
             <div class="projects-grid">
 
+                <!-- Academic Guidance System -->
                 <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="50" data-aos-duration="900">
                     <div class="project-image-side" id="proj-academic"></div>
                     <div class="project-info">
@@ -211,9 +231,13 @@
                             <li>Built an academic advisor expert system for students at Near East University, using Python with logic for academic guidance and decision support.</li>
                             <li>Implemented user input handling and built a functional software solution for student use.</li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/taalabdoulie31-stack" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Campus Market Website -->
                 <div class="project-card project-card-side" data-aos="fade-left" data-aos-delay="80" data-aos-duration="900">
                     <div class="project-image-side" id="proj-campus"></div>
                     <div class="project-info">
@@ -225,17 +249,20 @@
                         <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
                             <li>Built a dynamic campus marketplace website using PHP and frontend technologies, developed collaboratively as part of a team.</li>
                             <li>Focused on intuitive user interface design and clean website structure, tailored for university students.</li>
-                            <li><a href="https://www.campusmarketplace.site/" target="_blank" style="color: var(--i); text-decoration: underline;">View Live Project</a></li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://www.campusmarketplace.site/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> View Live Site</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- DashDish Mobile Restaurant App -->
                 <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="80" data-aos-duration="900">
                     <div class="project-image-side" id="proj-restaurant"></div>
                     <div class="project-info">
                         <h3>DashDish Mobile Restaurant App</h3>
                         <div class="project-meta">
-                            <span class="role"><i class="far fa-calendar-alt"></i> 2025 &nbsp;|&nbsp; Team Project &nbsp;|&nbsp; Frontend & Backend</span>
+                            <span class="role"><i class="far fa-calendar-alt"></i> 2025 &nbsp;|&nbsp; Team Project &nbsp;|&nbsp; Frontend &amp; Backend</span>
                             <span class="tools"><i class="fas fa-tools"></i> Flutter, Firebase</span>
                         </div>
                         <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
@@ -243,9 +270,13 @@
                             <li>Integrated Firebase for backend services including authentication, data storage, and real-time updates.</li>
                             <li>Designed a user-friendly mobile interface with smooth navigation and real-time data handling.</li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/taalabdoulie31-stack" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Expense IQ Analyzer -->
                 <div class="project-card project-card-side" data-aos="fade-left" data-aos-delay="80" data-aos-duration="900">
                     <div class="project-image-side" id="proj-expenseiq"></div>
                     <div class="project-info">
@@ -258,11 +289,14 @@
                             <li>Built a mobile app, as part of a team, that lets users track and analyze receipts and expenses for budget planning. Led the UI/UX design.</li>
                             <li>Used Flutter for the cross-platform mobile interface and Firebase for backend data storage and real-time syncing.</li>
                             <li>Served as the graduation project, combining practical financial tracking features with a clean, user-friendly design.</li>
-                            <li><a href="https://expenseiqapp.netlify.app/" target="_blank" style="color: var(--i); text-decoration: underline;">View Live Project</a></li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://expenseiqapp.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> View Live App</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Fashion E-Commerce Website -->
                 <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="80" data-aos-duration="900">
                     <div class="project-image-side" id="proj-weebly"></div>
                     <div class="project-info">
@@ -274,15 +308,18 @@
                         <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
                             <li>Designed and launched an online fashion store using the Weebly platform.</li>
                             <li>Created structured product pages with a focus on visual design and seamless user experience in the fashion niche.</li>
-                            <li><a href="https://safa-karaby-taal.weeblysite.com/" target="_blank" style="color: var(--i); text-decoration: underline;">View Live Project</a></li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://safa-karaby-taal.weeblysite.com/" target="_blank" class="project-link-btn"><i class="fas fa-external-link-alt"></i> View Live Store</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Data Analytics Dashboard -->
                 <div class="project-card project-card-side" data-aos="fade-left" data-aos-delay="80" data-aos-duration="900">
                     <div class="project-image-side" id="proj-dashboard"></div>
                     <div class="project-info">
-                        <h3>AI Student Life Pakistan 2026 - EDA</h3>
+                        <h3>AI Student Life Pakistan 2026 – EDA</h3>
                         <div class="project-meta">
                             <span class="role"><i class="far fa-calendar-alt"></i> 2026 &nbsp;|&nbsp; Researcher</span>
                             <span class="tools"><i class="fas fa-tools"></i> Python, Tableau</span>
@@ -292,22 +329,28 @@
                             <li>Processed and cleaned raw datasets by handling missing values, removing duplicates, and encoding variables.</li>
                             <li>Built interactive Tableau dashboards to visualize key insights regarding AI usage, academic performance, and student satisfaction.</li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/taalabdoulie31-stack" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Web Development Projects / Portfolio -->
                 <div class="project-card project-card-side" data-aos="fade-right" data-aos-delay="80" data-aos-duration="900">
                     <div class="project-image-side" id="proj-webdev"></div>
                     <div class="project-info">
-                        <h3>Personal Portfolio Website</h3>
+                        <h3>Web Development Projects</h3>
                         <div class="project-meta">
                             <span class="role"><i class="far fa-calendar-alt"></i> 2023 – Present</span>
                             <span class="tools"><i class="fas fa-tools"></i> HTML, CSS, JS</span>
                         </div>
                         <ul style="color: var(--muted); padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.7;">
-                            <li>Designed and built this responsive personal portfolio website to showcase my work.</li>
-                            <li>Applied modern web standards and best practices with a strong emphasis on UI/UX and frontend performance.</li>
-                            <li>Continuously updated and refined since 2023.</li>
+                            <li>Built multiple responsive websites with strong emphasis on UI/UX and frontend performance.</li>
+                            <li>Applied modern web standards and best practices across all projects.</li>
                         </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/taalabdoulie31-stack" target="_blank" class="project-link-btn"><i class="fab fa-github"></i> View on GitHub</a>
+                        </div>
                     </div>
                 </div>
 
@@ -318,22 +361,22 @@
     <!-- Additional Info (Languages, Soft Skills, Hobbies) -->
     <section id="languages" class="about">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; width: 100%;">
-                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="100">
-                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">LANGUAGES</h2>
-                    <p style="font-size: 1.05rem;"><strong>English:</strong> Fluent<br><strong>Wolof:</strong> Native</p>
+            <div class="info-grid">
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h2 class="section-title">LANGUAGES</h2>
+                    <p><strong>English:</strong> Fluent<br><strong>Wolof:</strong> Native</p>
                 </div>
-                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="200">
-                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">SOFT SKILLS</h2>
-                    <p style="font-size: 1.05rem;">Problem Solving<br>Team Collaboration<br>Communication<br>Time Management<br>Adaptability</p>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h2 class="section-title">SOFT SKILLS</h2>
+                    <p>Problem Solving<br>Team Collaboration<br>Communication<br>Time Management<br>Adaptability</p>
                 </div>
-                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="250">
-                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">HARD SKILLS</h2>
-                    <p style="font-size: 1.05rem;">HTML &amp; CSS<br>JavaScript<br>PHP<br>Python<br>MySQL (Database Management)</p>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="250">
+                    <h2 class="section-title">HARD SKILLS</h2>
+                    <p>HTML &amp; CSS<br>JavaScript<br>PHP<br>Python<br>MySQL (Database Management)</p>
                 </div>
-                <div class="about-content-full text-center" style="padding: 2rem;" data-aos="zoom-in" data-aos-delay="300">
-                    <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">HOBBIES</h2>
-                    <p style="font-size: 1.05rem;">Building Personal Coding Projects<br>Learning New Technologies<br>Playing Video Games<br>Reading Technology Articles<br>Watching Movies</p>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="300">
+                    <h2 class="section-title">HOBBIES</h2>
+                    <p>Building Personal Coding Projects<br>Learning New Technologies<br>Playing Video Games<br>Reading Technology Articles<br>Watching Movies</p>
                 </div>
             </div>
         </div>
@@ -364,14 +407,15 @@
                     <h3>GitHub</h3>
                     <p>taalabdoulie31-stack</p>
                 </a>
-                <a href="https://www.facebook.com/share/1BSmtBJ7BA/?mibextid=wwXIfr" class="contact-card" target="_blank" data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.5" data-aos="flip-left" data-aos-delay="500">
-                    <i class="fab fa-facebook-f"></i>
-                    <h3>Facebook</h3>
-                    <p>Abdoulie Taal</p>
-                </a>
+
             </div>
 
-            <p style="text-align: center; margin-top: 3rem; color: var(--muted);" data-aos="fade-in">REFERENCES: Available upon request.</p>
+            <div style="text-align: center; margin-top: 4rem; margin-bottom: 2rem;" data-aos="fade-up">
+                <button id="open-contact-modal" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);" onclick="document.getElementById('contact-modal').style.display='flex'; setTimeout(() => document.getElementById('contact-modal').style.opacity='1', 10);">
+                    <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Me a Message
+                </button>
+            </div>
+            <p class="references-text" data-aos="fade-in" style="margin-top: 1rem;">REFERENCES: Available upon request.</p>
         </div>
     </section>
 
@@ -385,9 +429,62 @@
         <img class="modal-content" id="modal-img">
     </div>
 
+
+    <!-- Contact Form Modal -->
+    <div id="contact-modal" class="contact-modal-overlay" style="display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); align-items: center; justify-content: center; padding: 20px;">
+        <div class="contact-modal-content" style="background: var(--card, #1a1a2e); border: 1px solid var(--border, rgba(255,255,255,0.1)); border-radius: 24px; padding: 2rem; width: 100%; max-width: 500px; position: relative;">
+            <span class="close-contact-modal" style="position: absolute; top: 15px; right: 20px; font-size: 30px; color: #888; cursor: pointer; z-index: 10;" onclick="document.getElementById('contact-modal').style.display='none'">&times;</span>
+            <div class="contact-form-wrapper" style="margin-top: 0; box-shadow: none; border: none; max-width: 100%; padding: 0;">
+                <h3 class="contact-form-title"><i class="fas fa-paper-plane"></i> Send Me a Message</h3>
+                <p class="contact-form-subtitle" style="margin-bottom: 1.5rem;">Fill out the form below and I'll get back to you soon.</p>
+                <form id="contact-form" action="https://formspree.io/f/xeeyooaq" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="contact-name" name="name" placeholder="Your full name" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="contact-email" name="email" placeholder="your@email.com" required autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fas fa-comment-alt"></i>
+                            <textarea id="contact-message" name="message" rows="3" placeholder="Write your message here..." required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-submit" id="submit-btn">
+                        <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                        <span class="btn-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+                    </button>
+                    <div id="form-success" class="form-success" style="display:none;">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Message sent successfully!</p>
+                    </div>
+                    <div id="form-error" class="form-error" style="display:none; background: rgba(220, 50, 50, 0.1); border: 1px solid rgba(220, 50, 50, 0.3); color: #ff6b6b; padding: 1rem 1.5rem; border-radius: 12px; margin-top: 1.2rem; align-items: center; gap: 0.8rem;">
+                        <i class="fas fa-exclamation-circle" style="font-size: 1.3rem;"></i>
+                        <p>Something went wrong. Please try again.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
     <script>
         AOS.init({
             once: true,

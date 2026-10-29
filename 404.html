@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        .error-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .error-desc {
+            color: var(--muted);
+            margin-bottom: 3rem;
+            max-width: 400px;
+        }
+        /* Make sure theme toggle works smoothly by loading theme immediately */
+        script.theme-init {
+            display: none;
+        }
+    </style>
+    <script class="theme-init">
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-message">Page Not Found</h2>
+        <p class="error-desc">Oops! The page you are looking for doesn't exist, has been removed, or is temporarily unavailable.</p>
+        <a href="index.html" class="btn btn-primary">Return Home</a>
+    </div>
+</body>
+</html>
