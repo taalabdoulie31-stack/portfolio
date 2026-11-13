@@ -376,7 +376,7 @@ if (cursor && cursorFollower) {
         const scrolled = Math.max(0.1, (winScroll / height) * 100);
         
         if (cursorFollower && !cursorFollower.classList.contains('hover-active')) {
-            cursorFollower.style.background = `conic-gradient(var(--accent) ${scrolled}%, rgba(59, 130, 246, 0.05) ${scrolled}%)`;
+            cursorFollower.style.background = `conic-gradient(var(--accent) ${scrolled}%, rgba(139, 94, 60, 0.05) ${scrolled}%)`;
         }
     });
 
@@ -426,38 +426,7 @@ if (!isTouchDevice()) {
     });
 }
 
-// 4. Decoder Text Reveal
-const glitchText = document.querySelector('.glitch-text');
-if (glitchText) {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let interval = null;
-    
-    const startGlitch = () => {
-        let iteration = 0;
-        clearInterval(interval);
-        const originalText = glitchText.dataset.value || glitchText.innerText;
-        
-        interval = setInterval(() => {
-            glitchText.innerText = originalText
-                .split("")
-                .map((letter, index) => {
-                    if(index < iteration) return originalText[index];
-                    return letters[Math.floor(Math.random() * 26)];
-                })
-                .join("");
-            
-            if(iteration >= originalText.length){ 
-                clearInterval(interval);
-            }
-            iteration += 1 / 3;
-        }, 30);
-    };
-
-    // Trigger on load
-    setTimeout(startGlitch, 500);
-}
-
-// 5. Interactive Canvas Particles
+// 4. Interactive Canvas Particles
 const canvas = document.getElementById('bg-canvas');
 if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -504,13 +473,13 @@ if (canvas) {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            // Color particles based on proximity to mouse — glowing blue/purple near cursor
+            // Highlight nearby particles with the site's bronze accent.
             const dx = globalMouseX - this.x;
             const dy = globalMouseY - this.y;
             const dist = Math.sqrt(dx*dx + dy*dy);
             const isLight = document.documentElement.getAttribute('data-theme') === 'light';
             if (dist < 180) {
-                ctx.fillStyle = `rgba(139, 92, 246, ${1 - dist/180})`;
+                ctx.fillStyle = `rgba(139, 94, 60, ${1 - dist/180})`;
             } else {
                 ctx.fillStyle = isLight ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.12)';
             }
@@ -533,14 +502,14 @@ if (canvas) {
                 if (dist < 130) {
                     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
                     const alpha = 0.08 - dist/1625;
-                    // Lines glow purple/blue near cursor
+                    // Highlight nearby connections with the site's bronze accent.
                     const mx = (particles[i].x + particles[j].x) / 2;
                     const my = (particles[i].y + particles[j].y) / 2;
                     const cdx = globalMouseX - mx;
                     const cdy = globalMouseY - my;
                     const cdist = Math.sqrt(cdx*cdx + cdy*cdy);
                     if (cdist < 200) {
-                        ctx.strokeStyle = `rgba(139, 92, 246, ${alpha * 4})`;
+                        ctx.strokeStyle = `rgba(139, 94, 60, ${alpha * 4})`;
                     } else {
                         ctx.strokeStyle = isLight ? `rgba(0,0,0,${alpha})` : `rgba(255,255,255,${alpha})`;
                     }
@@ -563,53 +532,7 @@ if (canvas) {
 
 
 
-// 7. SECTION ENTRANCE — 3D TILT REVEAL
-const sectionHeaders = document.querySelectorAll('.section-title');
-const sectionGlitchObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'none';
-            entry.target.offsetHeight;
-            entry.target.style.animation = '';
-            entry.target.classList.add('glitch-anim');
-            sectionGlitchObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-sectionHeaders.forEach(el => sectionGlitchObserver.observe(el));
-
-// 8. NEON GLOW PULSE ON SKILL TAGS
-const skillTags = document.querySelectorAll('.skill-tag, .tech-tag');
-skillTags.forEach((tag, i) => {
-    tag.style.animationDelay = `${(i * 0.15) % 3}s`;
-    tag.addEventListener('mouseenter', () => {
-        const colors = ['#a855f7','#3b82f6','#06b6d4','#f59e0b','#ec4899'];
-        const c = colors[Math.floor(Math.random() * colors.length)];
-        tag.style.boxShadow = `0 0 12px ${c}, 0 0 24px ${c}55`;
-        tag.style.borderColor = c;
-        tag.style.color = c;
-        tag.style.transition = 'box-shadow 0.3s, border-color 0.3s, color 0.3s';
-    });
-    tag.addEventListener('mouseleave', () => {
-        tag.style.boxShadow = '';
-        tag.style.borderColor = '';
-        tag.style.color = '';
-    });
-});
-
-// 9. SCROLL-REACTIVE BLOB COLORS
-const blobs = document.querySelectorAll('.blob');
-window.addEventListener('scroll', () => {
-    const progress = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    const hue1 = Math.round(220 + progress * 140); // blue -> pink
-    const hue2 = Math.round(270 + progress * 90);  // purple -> orange
-    if (blobs[0]) blobs[0].style.background = `hsla(${hue1}, 80%, 60%, 0.3)`;
-    if (blobs[1]) blobs[1].style.background = `hsla(${hue2}, 70%, 60%, 0.25)`;
-    if (blobs[2]) blobs[2].style.background = `hsla(${(hue1+hue2)/2}, 75%, 65%, 0.25)`;
-});
-
-// 10. TYPING ANIMATION ON SUBTITLE
+// 5. TYPING ANIMATION ON SUBTITLE
 const subtitle = document.querySelector('.hero p.subtitle');
 if (subtitle) {
     // Use textContent only — slicing raw innerHTML breaks HTML tags and hangs the page
